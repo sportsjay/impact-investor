@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "name": "C4D Partners",
+      "HQ": "Netherlands",
+      "about": "Dutch impact fund manager with investment teams in India, Indonesia and the Philippines",
+      "category": "Pure-Play Impact Investor",
+      "series": ["Seed", "Series A"],
+      "impact-areas": [
+        "Agriculture",
+        "Education",
+        "Fintech",
+        "Food",
+        "Healthcare",
+        "Consumer Goods",
+        "Energy & Renewables"
+      ],
+      "target-region": ["India", "Indonesia", "Philippines"],
+      "website": "https://www.c4dpartners.com/"
+    },
+    {
+      "id": 1,
+      "name": "Artesian",
+      "HQ": "Australia",
+      "about": "Global alternative investment management firm with ESG focus",
+      "category": "Pure-Play Impact Investor",
+      "series": ["Seed", "Series A"],
+      "impact-areas": [
+        "Energy & Renewables",
+        "Mobility",
+        "Sustainability",
+        "Cleantech",
+        "Robotics",
+        "AI"
+      ],
+      "target-region": ["UK", "USA", "APAC"],
+      "website": "https://www.artesianinvest.com/"
+    },
+    {
+      "id": 2,
+      "name": "Patamar Capital",
+      "HQ": "XX",
+      "about": "Venture capital firm investing in early-stage businesses serving the mass market in South and Southeast Asia.",
+      "category": "Venture Capital",
+      "series": ["Seed", "Series A", "Series B", "Series C"],
+      "impact-areas": [
+        "Fintech",
+        "eCommerce",
+        "Healthcare",
+        "Education",
+        "Agriculture"
+      ],
+      "target-region": ["India", "Indonesia", "Philippines", "Vietnam"],
+      "website": "http://patamar.com/"
+    }
+  ]
+}
