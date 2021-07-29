@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/impact-investor/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/impact-investor/static/js/main.62e8384f.chunk.js",
+    "main.js.map": "/impact-investor/static/js/main.62e8384f.chunk.js.map",
+    "runtime-main.js": "/impact-investor/static/js/runtime-main.29870b83.js",
+    "runtime-main.js.map": "/impact-investor/static/js/runtime-main.29870b83.js.map",
+    "static/js/2.b190fec5.chunk.js": "/impact-investor/static/js/2.b190fec5.chunk.js",
+    "static/js/2.b190fec5.chunk.js.map": "/impact-investor/static/js/2.b190fec5.chunk.js.map",
+    "static/js/3.e7227455.chunk.js": "/impact-investor/static/js/3.e7227455.chunk.js",
+    "static/js/3.e7227455.chunk.js.map": "/impact-investor/static/js/3.e7227455.chunk.js.map",
+    "index.html": "/impact-investor/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/impact-investor/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.b190fec5.chunk.js.LICENSE.txt": "/impact-investor/static/js/2.b190fec5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.29870b83.js",
+    "static/js/2.b190fec5.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.62e8384f.chunk.js"
+  ]
+}
