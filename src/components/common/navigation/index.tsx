@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { makeStyles, Theme } from "@material-ui/core";
 import { ClassNameMap } from "@material-ui/core/styles/withStyles";
 import { ComponentRoute } from "../../../models/route/route";
 import StyledLink from "./links";
 import { useLocation } from "react-router-dom";
+
+// import banner
+import bannerImage from "../../../assets/Banner_Long_With_Background.png";
+import { ColorPalette } from "../styles/colors";
 
 interface NavigationProps {
   routes: ComponentRoute[];
@@ -12,29 +16,26 @@ interface NavigationProps {
 export default function Navigation(props: NavigationProps) {
   const navClasses: ClassNameMap = navStyles();
 
-  // state
-  const location = useLocation();
-  const [currentRoute, setCurrentRoute] = useState("");
-
   // properties
   const routes: ComponentRoute[] = props.routes;
 
-  useEffect(() => {
-    setCurrentRoute(location.pathname);
-  }, []);
+  // state
+  const location = useLocation();
+  const [currentRoute, setCurrentRoute] = useState(location.pathname);
 
   return (
     <nav className={navClasses.root}>
       <img
-        src="assets/Banner_Long_With_Background.png"
+        src={bannerImage}
+        alt="No banner"
         className={navClasses.headerImage}
       />
       <section className={navClasses.navigation}>
         {routes.map((route: ComponentRoute) => (
           <StyledLink
-            onClick={() => setCurrentRoute(route.pathName)}
+            onClick={() => setCurrentRoute(route.path)}
             to={route.path}
-            isActive={currentRoute === route.pathName}
+            isActive={currentRoute === route.path}
             title={route.pathName}
           />
         ))}
@@ -45,6 +46,7 @@ export default function Navigation(props: NavigationProps) {
 
 const navStyles = makeStyles((theme: Theme) => ({
   root: {
+    backgroundColor: ColorPalette.gray1,
     [theme.breakpoints.down("sm")]: {},
   },
   headerImage: {

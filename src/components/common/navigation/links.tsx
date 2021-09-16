@@ -8,7 +8,9 @@ import { ColorPalette } from "../styles/colors";
 
 interface StyledLinkProps {
   to: string;
-  onClick: Function;
+  onClick?: VoidFunction;
+  onMouseEnter?: VoidFunction;
+  onMouserLeave?: VoidFunction;
   isActive: boolean;
   title: string;
 }
@@ -21,15 +23,29 @@ export default function StyledLink(props: StyledLinkProps) {
   const isActive = props.isActive;
   const title = props.title;
   const onClick = props.onClick;
+  const onMouseEnter = props.onMouseEnter;
+  const onMouseLeave = props.onMouserLeave;
 
   return (
-    <Link to={to} className={linkClasses.root} onClick={() => onClick()}>
-      <HeaderText style={{ fontSize: "20pt" }}>
-        {title}
-        <div
-          className={linkClasses.underline}
-          style={{ minWidth: isActive ? "100%" : 0 }}
-        />
+    <Link
+      to={to}
+      className={linkClasses.root}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onClick={onClick}
+    >
+      <HeaderText
+        style={{
+          fontSize: "20pt",
+          color: isActive ? ColorPalette.blue2 : ColorPalette.black1,
+          textAlign: "center",
+          fontWeight: "bold",
+          borderBottom: `${isActive ? "2px" : "0px"} solid ${
+            ColorPalette.blue2
+          }`,
+        }}
+      >
+        {title.toUpperCase()}
       </HeaderText>
     </Link>
   );
@@ -44,10 +60,10 @@ const linkStyles = makeStyles((theme: Theme) => ({
     boxSizing: "border-box",
     padding: theme.spacing(1),
   },
-  underline: {
-    position: "absolute",
-    backgroundColor: ColorPalette.black1,
-    bottom: 10,
-    height: 2,
-  },
+  // underline: {
+  //   position: "absolute",
+  //   backgroundColor: ColorPalette.black1,
+  //   bottom: 10,
+  //   height: 2,
+  // },
 }));

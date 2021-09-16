@@ -9,6 +9,7 @@ import {
 import {
   ArrowDropDown,
   ArrowDropUp,
+  ArrowLeft,
   ColorizeSharp,
   Filter,
   Search,
@@ -24,6 +25,7 @@ import { ColorPalette } from "../common/styles/colors";
 // import test data
 import { data } from "../../sample-data.json";
 import { FilterProps, Investor } from "../../models/investor";
+import { InvestorCard } from "./investor-card";
 
 interface SelectedFilter {
   title: string;
@@ -288,12 +290,12 @@ function InvestorDataPage(props: InvestorDataPageProps) {
   return (
     <div className={classes.root}>
       <header className={classes.header}>
-        <Text
-          onClick={getBack}
-          style={{ fontWeight: 700, cursor: "pointer", marginBottom: 10 }}
-        >
-          {"<<<"} Back to Impact Investor Menu
-        </Text>
+        <span className={classes.headerLink} onClick={getBack}>
+          <ArrowLeft />
+          <Text variant="subtitle1" style={{ fontWeight: 700 }}>
+            Back to Impact Investor Menu
+          </Text>
+        </span>
         <HeaderText>
           Investor Profile, <span>{model.name}</span>
         </HeaderText>
@@ -325,10 +327,27 @@ const investorDataPageStyles = makeStyles((theme: Theme) => ({
   header: {
     marginBottom: theme.spacing(2),
   },
+  headerLink: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "start",
+    alignItems: "center",
+    cursor: "pointer",
+    width: "max-content",
+    transition: "ease-out 0.1s",
+    paddingRight: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+    "&:hover": {
+      backgroundColor: ColorPalette.gray1,
+    },
+  },
   content: {
     display: "flex",
     flexDirection: "row",
     width: "100%",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column-reverse",
+    },
   },
   dataContainer: {
     display: "flex",
@@ -350,7 +369,7 @@ const investorDataPageStyles = makeStyles((theme: Theme) => ({
     },
   },
   rowContent: {
-    minWidth: 400,
+    minWidth: 200,
     width: "100%",
     padding: theme.spacing(1),
     borderBottom: `1px solid ${ColorPalette.black1}`,
@@ -390,8 +409,20 @@ function FilterDropDown(props: FilterDropDownProps) {
     setIsDropDownActive(!isDropDownActive);
   }
 
+  function mouseEnterDropDown() {
+    setIsDropDownActive(true);
+  }
+
+  function mouseLeaveDropDown() {
+    setIsDropDownActive(false);
+  }
+
   return (
-    <div className={filterClasses.root}>
+    <div
+      className={filterClasses.root}
+      onMouseEnter={mouseEnterDropDown}
+      onMouseLeave={mouseLeaveDropDown}
+    >
       <header
         id={`toggle-header-${id}`}
         className={filterClasses.header}
@@ -473,57 +504,5 @@ const filterStyles = makeStyles((theme: Theme) => ({
       borderRight: `2px solid ${ColorPalette.white}`,
     },
     cursor: "pointer",
-  },
-}));
-
-interface InvestorCardProps {
-  model: Investor;
-  onClick: VoidFunction;
-}
-
-function InvestorCard(props: InvestorCardProps) {
-  const classes = investorStyles();
-
-  // init properties
-  const model: Investor = props.model;
-  const onClick: VoidFunction = props.onClick;
-
-  return (
-    <div className={classes.root} onClick={onClick}>
-      <HeaderText className={classes.headerText}>{model.name}</HeaderText>
-      <section className={classes.more}>more {">>>"}</section>
-    </div>
-  );
-}
-
-const investorStyles = makeStyles((theme: Theme) => ({
-  root: {
-    minHeight: 120,
-    minWidth: 160,
-    width: "max-content",
-    backgroundColor: ColorPalette.blue3,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    boxSizing: "border-box",
-    padding: `${theme.spacing(4)}px ${theme.spacing(1)}px ${theme.spacing(
-      2
-    )}px ${theme.spacing(1)}px`,
-    transition: "ease-in 0.04s",
-    cursor: "pointer",
-    "&:hover": {
-      transform: "scale(1.02)",
-    },
-    "&:active": {
-      filter: "brightness(0.5)",
-    },
-  },
-  headerText: {
-    fontSize: "16pt",
-  },
-  more: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "flex-end",
   },
 }));
