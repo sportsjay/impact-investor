@@ -13,6 +13,7 @@ import ImpactInvestorPage from "./components/impact-investor";
 // import components
 import Navigation from "./components/common/navigation";
 import { makeStyles, Theme } from "@material-ui/core";
+import Footer from "./components/footer";
 
 function App() {
   const appClasses = appStyles();
@@ -31,6 +32,7 @@ function App() {
             />
           </Redirect>
         </Switch>
+        <Footer />
       </Router>
     </div>
   );

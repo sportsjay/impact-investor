@@ -46,11 +46,11 @@ export default function Navigation(props: NavigationProps) {
 
 const navStyles = makeStyles((theme: Theme) => ({
   root: {
-    backgroundColor: ColorPalette.gray1,
+    backgroundColor: ColorPalette.gray2,
     [theme.breakpoints.down("sm")]: {},
   },
   headerImage: {
-    width: "100vw",
+    width: "100%",
     height: "auto",
   },
   navigation: {

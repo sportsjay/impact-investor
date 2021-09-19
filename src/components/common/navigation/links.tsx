@@ -36,14 +36,12 @@ export default function StyledLink(props: StyledLinkProps) {
     >
       <HeaderText
         style={{
-          fontSize: "20pt",
-          color: isActive ? ColorPalette.blue2 : ColorPalette.black1,
-          textAlign: "center",
-          fontWeight: "bold",
+          color: isActive ? ColorPalette.blue3 : ColorPalette.white,
           borderBottom: `${isActive ? "2px" : "0px"} solid ${
-            ColorPalette.blue2
+            ColorPalette.blue3
           }`,
         }}
+        className={linkClasses.text}
       >
         {title.toUpperCase()}
       </HeaderText>
@@ -60,10 +58,15 @@ const linkStyles = makeStyles((theme: Theme) => ({
     boxSizing: "border-box",
     padding: theme.spacing(1),
   },
-  // underline: {
-  //   position: "absolute",
-  //   backgroundColor: ColorPalette.black1,
-  //   bottom: 10,
-  //   height: 2,
-  // },
+  text: {
+    fontSize: "20pt",
+    textAlign: "center",
+    fontWeight: "bold",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "16pt",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "8pt",
+    },
+  },
 }));

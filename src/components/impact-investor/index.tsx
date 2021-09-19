@@ -175,6 +175,7 @@ export default function ImpactInvestorPage() {
                 JSON.parse(selectedFilter);
               return (
                 <Chip
+                  key={parsedSelectedFilter.filter}
                   label={parsedSelectedFilter.filter}
                   onDelete={() => onRemoveSelectFilter(parsedSelectedFilter)}
                 />
@@ -191,6 +192,7 @@ export default function ImpactInvestorPage() {
             {filters.map((filter: FilterDropDownProps) =>
               !nonFilters.has(filter.title) ? (
                 <FilterDropDown
+                  key={filter.id}
                   {...filter}
                   onAddFilterFunction={onAddSelectFilter}
                 />
@@ -205,6 +207,7 @@ export default function ImpactInvestorPage() {
           <div className={investorPageClasses.investorContainer}>
             {investors.map((investor: Investor) => (
               <InvestorCard
+                key={investor.id}
                 model={investor}
                 onClick={() => onSelectInvestor(investor)}
               />
@@ -238,6 +241,7 @@ const investorPageStyles = makeStyles((theme: Theme) => ({
   searchBar: {
     width: "100%",
     flex: 10,
+    marginRight: theme.spacing(2),
   },
   filterHeader: {
     display: "flex",
@@ -256,6 +260,10 @@ const investorPageStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flexWrap: "wrap",
     gap: theme.spacing(4),
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "center",
+      alignItems: "center",
+    },
   },
 }));
 
@@ -472,6 +480,9 @@ const filterStyles = makeStyles((theme: Theme) => ({
     width: "max-content",
     height: "max-content",
     minWidth: 200,
+    [theme.breakpoints.down("sm")]: {
+      minWidth: "40%",
+    },
   },
   header: {
     position: "relative",

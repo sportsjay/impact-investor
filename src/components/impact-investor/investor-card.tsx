@@ -48,6 +48,11 @@ const investorStyles = makeStyles((theme: Theme) => ({
     "&:active": {
       filter: "brightness(0.5)",
     },
+    [theme.breakpoints.down("sm")]: {
+      width: "80%",
+      maxWidth: 320,
+      height: "max-content",
+    },
   },
   header: {
     padding: `${theme.spacing(4)}px ${theme.spacing(1)}px ${theme.spacing(
